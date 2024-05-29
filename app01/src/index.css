@@ -1,0 +1,19 @@
+body{
+  margin: 0px;
+  padding:0px;
+  background-color: #ffccaa;
+}
+
+.banner{
+  background-color:#000000;
+  color:#ffffff;
+  padding:10px;
+}
+
+section{
+  padding:10px;
+  width:90%;
+  margin: auto;
+  margin-top: 10px;
+  background-color: #ffffff;
+}
