@@ -201,3 +201,82 @@ ReactJS
         2. 'state' is immutable.
         3. 'state' is only replacable using 'setState()' method.
         4. Each time 'state' is replaced, the 'render()' is invoked.
+
+    Shadow DOM
+
+        Each time when an iterative collection of data in state gets
+        modified, regenerating the entire DOM is a costly process.
+
+        Instead, ReactJS maintaiens a temporary copy the DOM called Shadow DOM.
+        Actual DOM is directly linked to the screen whereas the Shadow DOM has no
+        link with the screen.
+
+        This means modifing shadow dom is less costlier than modifing the actual DOM.
+
+        Now changes are first made on shadow DOM and after all the state is placed on 
+        shadow DOM, the shadow DOM is super imposed on the actual DOM and the actual
+        DOM will have only the final changes.
+
+        To facilitate the comparaison between shadow DOM and actual DOM,
+        each element iterated is expected to have a unique 'key'.
+
+    Integrating Bootstrap With ReactJS
+
+        npm i bootstrap
+
+        bootstrap.min.css and bootstrap.bundle.js must be imported into index.js.
+
+    Working with Forms - Controlled Components vs UnControlled Components 
+    
+    Component LifeCycle Methods
+
+        constructor()                   receice the 'props' and initlize the 'state'.
+            |
+            ↓
+            render()                    returns the DOM to be displayed for the current component.
+                |
+                ↓
+                componentDidMount()     is used to execute an operation after the first render. (like rest-api calls)
+
+                    /***********************************************************/
+                        whenever setState() is called...
+                    /***********************************************************/
+                            |
+                            ↓
+                            render() 
+                                |
+                                ↓
+                                componentDidUpdate()        is used to execute an operation after each render 
+                                                            except the first time. 
+
+        componentWillUnmount()      is used to execute an operation just before the component is unmounted.
+
+    ReactJS Hooks
+
+        A Hook is a special function used to add features to a function component.
+
+        useState        is a hook that allows a function component to have a state.
+
+                        let [reader,writer] = useState(initalValue);
+
+                        let [x,setX] = useState(0);
+
+                        'x' is used to read the value and 'setX()' can be used to change the value.
+
+        useEffect       is a hook that provides lifeCycle methods to a function component.
+
+                        useEffect(callBack, dependencyArray )
+
+                            if the depenencyArray is empty, the callBack is executed only once that too after the first render..
+
+                                useEffect( ()=> {
+                                    // this is equivalent ot componentDidMount
+                                } , []);
+                            
+                            if the depenencyArray is not empty, the callBack is executed after every render each time the fields in the array change their value.
+
+                                useEffect( ()=> {
+                                    // this is equivalent ot componentDidUpdate
+                                } , [x,y]);
+
+
