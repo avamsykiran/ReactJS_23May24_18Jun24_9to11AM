@@ -279,4 +279,49 @@ ReactJS
                                     // this is equivalent ot componentDidUpdate
                                 } , [x,y]);
 
+    Application Level State Management - Redux
 
+        Redux is a third party library, used to isolate state management from the UI-Components.
+
+        npm i redux
+
+            Store           is a object that holds all the data related to an application.
+                            one application has only one store.
+
+                            cosnt store = createStore(reducer);
+
+            reducer         is a function that accpets an action, and existing state, and returns
+                            the modified state as per the given action.
+
+                            const reducer = (currentState,action) => {
+
+                                //create a new modified state based on the action and the currentState
+
+                                return modifiedNewState
+                            }
+
+            action          is an object that has two fields 'type' and payload.
+
+                            const action1 = { type:"ADD_EMP",emp:{id:1,fullName:"VAmsy",salary:450000} }
+
+                            const action2 = { type:"DEL_EMP",empId:101}
+
+            dispatch        is a method provided by 'redux'. used to throw an action from a ui-component inot the reducer.
+
+                            dispatch(action) --------> reducer(store.state,action);
+
+        npm i react-redux
+
+            react-redux si an integration library between redux and reactjs.
+
+            useSelector     is a hook provided by 'react-redux'. it is sued to select a part of the state
+                            into a component.   useSelector is boudn to the state and hence everytime the 
+                            state is modified, useSelector will automatically update the component too.
+
+                            let empsList = useSelector( state => state.emps );
+
+            useDispatch     is a hook that gives access to 'dispatch' method.
+
+                            const dispatch = useDispatch();
+
+                            
