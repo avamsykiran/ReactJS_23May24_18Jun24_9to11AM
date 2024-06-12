@@ -324,4 +324,43 @@ ReactJS
 
                             const dispatch = useDispatch();
 
-                            
+            Provider        is a component from 'react-redux' that is sued to wrap the store on the 'App' component.
+
+                                    <Provider store={store}>
+                                        <App />
+                                    </Provider>
+
+            store -------------→ ----(useSelector)----
+             ↑                      |                |
+             |                      ↓                |
+             |                      Component1       ↓
+             |                      |               Component2
+             |                      |                |
+             |                      dispatch(action) |
+             |                      |                dispatch(action)
+             |(modified state)      |                |  
+             |                      ↓                ↓   
+             reducer ←---(action)---------------------   
+
+    Create a fake rest-api using json-server
+
+    Calling rest-api using axios
+
+        npm i axios
+
+        axios.get(endPoint) : Promise
+        axios.post(endPoint,reqBody) : Promise
+        axios.put(endPoint,reqBody) : Promise
+        axios.delete(endPoint) : Promise
+
+        axios.get("http://localhost:9999/contacts")
+            .then ( data => { } )
+            .catch( err => { } );
+
+    Integrating axios calls with redux reducer through redux-thunk (middelware).
+
+    React Routing
+
+
+
+         
